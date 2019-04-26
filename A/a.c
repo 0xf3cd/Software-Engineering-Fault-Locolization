@@ -8,7 +8,7 @@ int findMax(int a, int b, int c) {
         max = b;
     }
 
-    if(c > a) {
+    if(c > a) { // bug
         max = c;
     }
 

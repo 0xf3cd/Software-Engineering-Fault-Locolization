@@ -20,7 +20,7 @@ int main() {
     int res;
     scanf("%d", &a);
     
-    res = f1(a);
+    res = f1(a)+f2(a);
     if(a % 3 == 0) {
         res = f2(a+1); //bug
     }

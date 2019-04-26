@@ -3,7 +3,7 @@
 
 int calculate(int a, int b) {
     if(a % 2 == 0) {
-        if(b % 2 != 0) {
+        if(b % 2 != 0) { // bug
             return a * b;
         }
     }
