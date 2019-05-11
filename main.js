@@ -272,7 +272,6 @@ const SetIntersection = function(T, F) {
     }
 
     let diff = new Set([...passIntsctn].filter(element => !failUnion.has(element)));
-
     const suspiciousness = new Map();
     for(let i = 1; i <= lineNum; i++) {
         if(diff.has(i)) {
@@ -320,13 +319,12 @@ const output2File = function(T, F, outFile) {
     fs.writeFileSync(outFile, data);
 };
 
-console.log(process.argv);
+// console.log(process.argv);
 const path = process.argv[2];
 const src = process.argv[3];
 const cases = process.argv[4];
-// const r = analyzeResult(getResult('./A', 'a.c', '1 9 8\n'));
-// console.log(r);
-const {T, F, codeMap} = analyzeCases(path, src, cases);// analyzeCases('./A', 'a.c', 'cases');
+
+const {T, F, codeMap} = analyzeCases(path, src, cases);
 const lineNum = T[0][1].length;
 const list = sumUp(T, F);
 const Tar = Tarantula(T.length, F.length, list);
@@ -335,6 +333,8 @@ const Och = Ochiai(T.length, F.length, list);
 const SU = SetUnion(T, F);
 const SI = SetIntersection(T, F);
 output2File(T, F, './coverage-info');
+
+console.log(SU);
 
 const data = new Array();
 const title = ['line', 'code', 'Tarantula', 'Jaccard', 'Ochiai', 'SetUnion', 'SetIntersection'];
